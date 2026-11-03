@@ -18,3 +18,4 @@ Notes
 - Stock footage: Mixkit (free licence). Voices: Instinct. Music and sound design: original.
 - Videos in `videos/`.
 - [09 Beta launch (full, 56s)](videos/09-beta-launch-full.mp4) — Part A + photoreal 3D Part B
+- [10 LinkedIn: The sign-off (49s, 16:9)](videos/10-linkedin-the-signoff.mp4) — no faces, Hebrew VO via Instinct
