@@ -17,3 +17,4 @@ Notes
 - Demo sites, brands, venues and accounts shown are fictional.
 - Stock footage: Mixkit (free licence). Voices: Instinct. Music and sound design: original.
 - Videos in `videos/`.
+- [09 Beta launch (full, 56s)](videos/09-beta-launch-full.mp4) — Part A + photoreal 3D Part B
