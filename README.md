@@ -21,3 +21,4 @@ Notes
 - [10 LinkedIn: The sign-off (49s, 16:9)](videos/10-linkedin-the-signoff.mp4) — no faces, Hebrew VO via Instinct
 - [10 LinkedIn: The sign-off, v2 (HUD design)](videos/10-linkedin-the-signoff-v2.mp4)
 - [10 LinkedIn: The sign-off, v3 (photoreal 3D products + HUD)](videos/10-linkedin-the-signoff-v3-3d.mp4)
+- 11-achi-logo-animation.mp4: logo reveal, cursor click on the period (5.5s)
