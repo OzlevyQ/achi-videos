@@ -19,7 +19,7 @@ ENC = ['-an', '-c:v', 'libx264', '-preset', 'veryfast', '-crf', '17', '-pix_fmt'
 
 # ------------------------------------------------------------------ timeline of the whole video
 DT0 = CFG['tr_end'] - CFG['tr_start']; SLOW = 2.4; DT = DT0 + SLOW   # trump clip + slow-mo SI
-TUN = 3.4; RW = 1.0
+TUN = 3.4; RW = 1.0; OV = 0.3
 evs = T['events']; M = T['markers']
 first = [e for e in evs if e['kind'] != 'card' or e.get('era') != 'intro'][0]   # first event after the open card
 K = 0.78; F0 = first['t0']
@@ -27,7 +27,7 @@ sc = lambda t: F0 + (t - F0) * K
 chaos_evs = [dict(e, t0=sc(e['t0']), dur=e['dur'] * K) for e in evs if e['t0'] >= F0 and e['t0'] < M['black'] - 1e-6]
 M = {k: (sc(v) if isinstance(v, (int, float)) and v >= F0 else v) for k, v in M.items()}
 for a in T['audio']: a['t'] = sc(a['t'])
-CH0 = DT + RW + TUN; shift = CH0 - F0
+CH0 = DT + RW + TUN - 2 * OV; shift = CH0 - F0
 CHL = M['black'] - first['t0']; CH1 = CH0 + CHL
 BOOM = 1.4; FIN0 = CH1 + BOOM; FINL = 18.6; TOTAL = FIN0 + FINL
 print('trump', DT, 'tunnel', TUN, 'chaos', round(CHL, 2), 'boom', BOOM, 'finale', FINL, 'TOTAL', round(TOTAL, 2))
@@ -43,7 +43,7 @@ def seg_trump():
           f"scale=w='ceil(1080*(1+0.06*t/{DT})/2)*2':h=-2:eval=frame,crop=1080:1920,"
           f"drawbox=x=0:y=0:w=1080:h=420:color=black@0.45:t=fill,drawbox=x=0:y=1320:w=1080:h=600:color=black@0.55:t=fill,format=yuva420p[a];"
           f"[a][1:v]overlay=0:0[b];[b][2:v]overlay=0:0:enable='gte(t,{si})',"
-          f"fade=t=out:st={DT-0.12:.2f}:d=0.12:color=white,format=yuv420p[v]")
+          f"format=yuv420p[v]")
     run([FF, '-v', 'error', '-y', '-i', V3 + '/trump/un_seg2.mp4', '-i', V3 + '/ov_cap.png', '-i', V3 + '/ov_si.png', '-filter_complex', fc, '-map', '[v]', '-frames:v', str(N)] + ENC + [out]); return out
 
 YR = {'2016': (0.55, 14), '2017': (0.55, 14), '2022': (0.7, 10), '2023': (0.85, 6), '2024': (0.95, 3), '2025': (1.05, 0), '2026': (1.08, 0)}
@@ -62,26 +62,34 @@ def render_fx(ev):
 
 def seg_rewind():
     out = B + '/rewind.mp4'; N = nfr(RW)
-    fc = ("[0:v]reverse,setpts=PTS/9,fps=30,scale=-2:1920,crop=1080:1920,eq=contrast=1.15:saturation=0.7,"
+    fc = ("[0:v]reverse,setpts=PTS/5.1,fps=30,scale=-2:1920,crop=1080:1920,eq=contrast=1.15:saturation=0.7,"
           "rgbashift=rh=-18:bh=18,noise=alls=40:allf=t,"
           "geq=lum='lum(X,Y)*(0.82+0.18*sin(Y*1.6))':cb='cb(X,Y)':cr='cr(X,Y)',"
           "crop=1080:1920:x='30*sin(n*1.7)*(1+sin(n*0.31))':y=0,"
           "drawbox=x=0:y='mod(t*4000,1900)':w=1080:h=70:color=white@0.35:t=fill,format=yuva420p[a];"
           "[a][1:v]overlay=0:0:enable='lt(mod(t,0.3),0.2)',format=yuv420p[v]")
-    run([FF, '-v', 'error', '-y', '-ss', '2.0', '-i', V3 + '/trump/un_seg2.mp4', '-i', V3 + '/ov_rew.png', '-filter_complex', fc, '-map', '[v]', '-frames:v', str(N)] + ENC + [out]); return out
+    run([FF, '-v', 'error', '-y', '-ss', '0.7', '-t', '5.1', '-i', V3 + '/trump/un_seg2.mp4', '-i', V3 + '/ov_rew.png', '-filter_complex', fc, '-map', '[v]', '-frames:v', str(N)] + ENC + [out]); return out
 
 def seg_boom():
     out = B + '/boom.mp4'; N = nfr(BOOM)
     fc = f"color=c=white:s=1080x1920:r=30:d={BOOM},fade=t=out:st=0.05:d=0.45:color=black,format=yuv420p[v]"
     run([FF, '-v', 'error', '-y', '-f', 'lavfi', '-i', f"color=c=white:s=1080x1920:r=30:d={BOOM}", '-vf', "fade=t=out:st=0.05:d=0.45:color=black,format=yuv420p", '-frames:v', str(N)] + ENC + [out]); return out
 
+def probe_n(p):
+    r = run([FF.replace('ffmpeg','ffprobe'), '-v', 'error', '-count_frames', '-select_streams', 'v:0', '-show_entries', 'stream=nb_read_frames', '-of', 'csv=p=0', p]); return int(r.stdout.strip())
+
 def video():
     with cf.ThreadPoolExecutor(4) as ex:
         fx = list(ex.map(render_fx, chaos_evs))
-    parts = [seg_trump(), seg_rewind(), V3 + '/tunnel.mp4'] + fx + [seg_boom(), V3 + '/finale.mp4']
-    open(B + '/list.txt', 'w').write(''.join(f"file '{p}'\n" for p in parts))
-    run([FF, '-v', 'error', '-y', '-f', 'concat', '-safe', '0', '-i', B + '/list.txt', '-an', '-c:v', 'libx264', '-preset', 'medium', '-crf', '17', '-pix_fmt', 'yuv420p', '-r', '30', B + '/video.mp4'])
-    n = sum(nfr(DT) for _ in [0]) + nfr(RW) + nfr(TUN) + sum(nfr(e['dur']) for e in chaos_evs) + nfr(BOOM) + nfr(FINL)
+    pa = [seg_trump(), seg_rewind()]; pc = fx + [seg_boom(), V3 + '/finale.mp4']
+    for nm, parts in (('A', pa), ('C', pc)):
+        open(B + f'/list{nm}.txt', 'w').write(''.join(f"file '{p}'\n" for p in parts))
+        run([FF, '-v', 'error', '-y', '-f', 'concat', '-safe', '0', '-i', B + f'/list{nm}.txt', '-an', '-c:v', 'libx264', '-preset', 'veryfast', '-crf', '15', '-pix_fmt', 'yuv420p', '-r', '30', B + f'/part{nm}.mp4'])
+    la = (nfr(DT) + nfr(RW)) / FPS; lt = nfr(TUN) / FPS
+    o1 = la - OV; o2 = la + lt - 2 * OV
+    fc = (f"[0:v][1:v]xfade=transition=fade:duration={OV}:offset={o1:.3f}[x];[x][2:v]xfade=transition=fade:duration={OV}:offset={o2:.3f},format=yuv420p[v]")
+    run([FF, '-v', 'error', '-y', '-i', B + '/partA.mp4', '-i', V3 + '/tunnel.mp4', '-i', B + '/partC.mp4', '-filter_complex', fc, '-map', '[v]', '-an', '-c:v', 'libx264', '-preset', 'medium', '-crf', '17', '-pix_fmt', 'yuv420p', '-r', '30', B + '/video.mp4'])
+    n = nfr(DT) + nfr(RW) + nfr(TUN) + sum(nfr(e['dur']) for e in chaos_evs) + nfr(BOOM) + nfr(FINL) - round(2 * OV * FPS)
     print('video frames', n, 'sec', n / FPS)
     return n / FPS
 
@@ -151,7 +159,7 @@ def audio(total):
     # ---- 2. tunnel
     t_ = np.arange(int(RW*SR))/SR; ph = np.cumsum(2*np.pi*(2400*np.exp(-t_*1.5)+200)/SR)
     put(0.12*np.sin(ph)*np.minimum(1,t_*20)*np.minimum(1,(RW-t_)*10) + 0.25*lp_sweep(noise(RW),6000,1500)*0.4, DT, 0, 1.0)
-    T0 = DT + RW
+    T0 = DT + RW - OV
     put(whoosh(0.5, 400, 7000), T0 - 0.1, 0, 0.15)
     put(riser(TUN + 0.1, 1.0), T0, 0, 0.3)
     cand = [a for a in T['audio'] if a['dur'] > 0.5]; rng2 = np.random.default_rng(11); picks = rng2.choice(len(cand), size=min(26, len(cand)), replace=False)
@@ -222,7 +230,7 @@ def audio(total):
     print('audio peak', round(float(pk), 2), 'scale', round(float(sc), 2))
 
 def main():
-    vs = video() if not os.environ.get('SKIPV') else (sum(nfr(DT) for _ in [0]) + nfr(RW) + nfr(TUN) + sum(nfr(e['dur']) for e in chaos_evs) + nfr(BOOM) + nfr(FINL)) / FPS
+    vs = video() if not os.environ.get('SKIPV') else (nfr(DT) + nfr(RW) + nfr(TUN) + sum(nfr(e['dur']) for e in chaos_evs) + nfr(BOOM) + nfr(FINL) - round(2 * OV * FPS)) / FPS
     audio(vs)
     out = D + '/achi-supercut-v3.mp4'
     run([FF, '-v', 'error', '-y', '-i', B + '/video.mp4', '-i', B + '/mix.wav', '-map', '0:v', '-map', '1:a', '-c:v', 'copy', '-c:a', 'aac', '-b:a', '192k', '-shortest', out])
