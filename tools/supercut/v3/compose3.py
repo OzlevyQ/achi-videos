@@ -18,7 +18,7 @@ def nfr(d): return max(1, round(d * FPS))
 ENC = ['-an', '-c:v', 'libx264', '-preset', 'veryfast', '-crf', '17', '-pix_fmt', 'yuv420p', '-r', str(FPS)]
 
 # ------------------------------------------------------------------ timeline of the whole video
-DT = CFG['tr_end'] - CFG['tr_start']                     # trump clip
+DT0 = CFG['tr_end'] - CFG['tr_start']; SLOW = 2.4; DT = DT0 + SLOW   # trump clip + slow-mo SI
 TUN = 3.4; RW = 1.0
 evs = T['events']; M = T['markers']
 first = [e for e in evs if e['kind'] != 'card' or e.get('era') != 'intro'][0]   # first event after the open card
@@ -35,12 +35,16 @@ print('trump', DT, 'tunnel', TUN, 'chaos', round(CHL, 2), 'boom', BOOM, 'finale'
 # ------------------------------------------------------------------ video segments
 def seg_trump():
     out = B + '/trump.mp4'; N = nfr(DT); si = CFG['si_rel']
-    fc = (f"[0:v]scale=-2:1920,crop=1080:1920,fps=30,eq=contrast=1.08:saturation=1.1,"
+    base = CFG['tr_start']              # offset of audio start inside un_seg.mp4
+    s2 = CFG['slow_start']; sd = CFG['slow_dur']; k = SLOW / sd
+    fc = (f"[0:v]split=2[a0][b0];[a0]trim=start={base}:end={base+DT0},setpts=PTS-STARTPTS[p1];"
+          f"[b0]trim=start={s2}:end={s2+sd},setpts=(PTS-STARTPTS)*{k:.4f}[p2];"
+          f"[p1][p2]concat=n=2:v=1:a=0,fps=30,scale=-2:1920,crop=1080:1920,eq=contrast=1.08:saturation=1.1,"
           f"scale=w='ceil(1080*(1+0.06*t/{DT})/2)*2':h=-2:eval=frame,crop=1080:1920,"
           f"drawbox=x=0:y=0:w=1080:h=420:color=black@0.45:t=fill,drawbox=x=0:y=1320:w=1080:h=600:color=black@0.55:t=fill,format=yuva420p[a];"
           f"[a][1:v]overlay=0:0[b];[b][2:v]overlay=0:0:enable='gte(t,{si})',"
           f"fade=t=out:st={DT-0.12:.2f}:d=0.12:color=white,format=yuv420p[v]")
-    run([FF, '-v', 'error', '-y', '-ss', '1.0', '-i', V3 + '/trump/un_seg.mp4', '-i', V3 + '/ov_cap.png', '-i', V3 + '/ov_si.png', '-filter_complex', fc, '-map', '[v]', '-frames:v', str(N)] + ENC + [out]); return out
+    run([FF, '-v', 'error', '-y', '-i', V3 + '/trump/un_seg2.mp4', '-i', V3 + '/ov_cap.png', '-i', V3 + '/ov_si.png', '-filter_complex', fc, '-map', '[v]', '-frames:v', str(N)] + ENC + [out]); return out
 
 YR = {'2016': (0.55, 14), '2017': (0.55, 14), '2022': (0.7, 10), '2023': (0.85, 6), '2024': (0.95, 3), '2025': (1.05, 0), '2026': (1.08, 0)}
 def render_fx(ev):
@@ -64,7 +68,7 @@ def seg_rewind():
           "crop=1080:1920:x='30*sin(n*1.7)*(1+sin(n*0.31))':y=0,"
           "drawbox=x=0:y='mod(t*4000,1900)':w=1080:h=70:color=white@0.35:t=fill,format=yuva420p[a];"
           "[a][1:v]overlay=0:0:enable='lt(mod(t,0.3),0.2)',format=yuv420p[v]")
-    run([FF, '-v', 'error', '-y', '-ss', '1.0', '-i', V3 + '/trump/un_seg.mp4', '-i', V3 + '/ov_rew.png', '-filter_complex', fc, '-map', '[v]', '-frames:v', str(N)] + ENC + [out]); return out
+    run([FF, '-v', 'error', '-y', '-ss', '2.0', '-i', V3 + '/trump/un_seg2.mp4', '-i', V3 + '/ov_rew.png', '-filter_complex', fc, '-map', '[v]', '-frames:v', str(N)] + ENC + [out]); return out
 
 def seg_boom():
     out = B + '/boom.mp4'; N = nfr(BOOM)
@@ -138,14 +142,25 @@ def audio(total):
         if n <= 0: return
         a = (pan + 1) * np.pi / 4; dl[i:i + n] += x[:n] * np.cos(a) * gain * 1.414; dr[i:i + n] += x[:n] * np.sin(a) * gain * 1.414
     # ---- 1. trump (real speech, from t=0)
-    tr = snippet(D + '/audio/k17vgtoa6m.m4a', CFG['tr_start'], DT); tr = norm_rms(tr, 0.22, 0.3, 8.0); tr = fade(tr, 0.01, 0.1)
+    tr = snippet(V3 + '/trump/un_seg2.mp4', CFG['tr_start'], DT0); tr = norm_rms(tr, 0.24, 0.3, 8.0); tr = fade(tr, 0.01, 0.05)
     put(tr, 0.0, 0.0, 1.0, sp=True)
+    sd = CFG['slow_dur']; tp = sd / SLOW
+    r = subprocess.run([FF, '-v', 'error', '-ss', f"{CFG['slow_start']:.3f}", '-t', f'{sd:.3f}', '-i', V3 + '/trump/un_seg2.mp4', '-vn', '-ac', '1', '-ar', str(SR), '-af', f'atempo=0.5,atempo={tp/0.5:.4f}', '-f', 'f32le', '-'], capture_output=True)
+    sl = np.frombuffer(r.stdout, dtype=np.float32).astype(np.float64); sl = fade(norm_rms(sl, 0.26, 0.3, 8.0), 0.02, 0.15)
+    put(sl, DT0, 0.0, 1.0, sp=True); put(thud(0.5, 45, 0.3, 0.8), DT0 - 0.02, 0, 0.5)
     # ---- 2. tunnel
     t_ = np.arange(int(RW*SR))/SR; ph = np.cumsum(2*np.pi*(2400*np.exp(-t_*1.5)+200)/SR)
     put(0.12*np.sin(ph)*np.minimum(1,t_*20)*np.minimum(1,(RW-t_)*10) + 0.25*lp_sweep(noise(RW),6000,1500)*0.4, DT, 0, 1.0)
     T0 = DT + RW
     put(whoosh(0.5, 400, 7000), T0 - 0.1, 0, 0.15)
     put(riser(TUN + 0.1, 1.0), T0, 0, 0.3)
+    cand = [a for a in T['audio'] if a['dur'] > 0.5]; rng2 = np.random.default_rng(11); picks = rng2.choice(len(cand), size=min(26, len(cand)), replace=False)
+    for j, pi in enumerate(picks):
+        a = cand[pi]; d = min(a['dur'], float(rng2.uniform(0.45, 0.85))); x = snippet(a['src'], a['ss'] + 0.05, d)
+        if len(x) < 100: continue
+        if j % 3 == 2: x = x[::-1].copy()
+        tt = T0 + float(rng2.uniform(0.0, TUN - d)) ** 1.0
+        put(fade(norm_rms(x, 0.13, 0.4, 8.0), 0.01, 0.05), tt, float(rng2.uniform(-0.8, 0.8)), 0.9, sp=True)
     k = 2025
     for kk in range(2025, 2015, -1):
         u = ((2026 - kk) / 10) ** (1 / 1.35); tt = T0 + u * TUN
