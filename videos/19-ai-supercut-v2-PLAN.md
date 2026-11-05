@@ -92,7 +92,6 @@
 - `F1_0Lkp16Rc` — Introducing Grok Bot
 - `xr4VUV-7rN0` — Mistral and Microsoft strategic partnership
 - `ODaHJzOyVCQ` — Claude Computer use
-- `YeldJ4UezDQ` — Introducing Comet
 - `_fuimO6ErKI` — Google Welcome to the Gemini era
 - `jV1vkHv4zq8` — Google's newest and most capable AI | Gemini
 
