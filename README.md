@@ -23,3 +23,4 @@ Notes
 - [10 LinkedIn: The sign-off, v3 (photoreal 3D products + HUD)](videos/10-linkedin-the-signoff-v3-3d.mp4)
 - 11-achi-logo-animation.mp4: logo reveal, cursor click on the period (5.5s)
 - 12-achi-painted-eye-9x16.mp4: surreal watercolor (p5.brush) 46 tabs -> one click, 14s vertical
+- 13-achi-mixed-media-9x16.mp4: watercolor (p5.brush) + real footage collage + photoreal 3D phone portal (14s vertical)
