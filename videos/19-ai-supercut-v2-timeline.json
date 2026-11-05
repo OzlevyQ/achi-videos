@@ -1,0 +1,1654 @@
+{
+ "fps": 30,
+ "W": 1080,
+ "H": 1920,
+ "events": [
+  {
+   "id": 0,
+   "kind": "card",
+   "t0": 0.0,
+   "dur": 1.6,
+   "era": "intro",
+   "card": "open"
+  },
+  {
+   "id": 1,
+   "kind": "card",
+   "t0": 1.6,
+   "dur": 1.2,
+   "era": "2016",
+   "card": "alphago"
+  },
+  {
+   "id": 2,
+   "kind": "card",
+   "t0": 2.8,
+   "dur": 1.0,
+   "era": "2017",
+   "card": "attention"
+  },
+  {
+   "id": 3,
+   "kind": "card",
+   "t0": 3.8,
+   "dur": 1.0,
+   "era": "2022",
+   "card": "chatgpt"
+  },
+  {
+   "id": 4,
+   "kind": "clip",
+   "t0": 4.8,
+   "dur": 1.0,
+   "era": "2023",
+   "year": "2023",
+   "panels": [
+    {
+     "src": "/tmp/supercut/full1080/outcGtbnMuQ.mp4",
+     "key": "gpt4",
+     "vs": 8.96,
+     "word": "GPT-4",
+     "label": "OpenAI \u00b7 GPT-4 launch",
+     "year": "2023"
+    }
+   ]
+  },
+  {
+   "id": 5,
+   "kind": "clip",
+   "t0": 5.8,
+   "dur": 0.9,
+   "era": "2023",
+   "year": "2023",
+   "panels": [
+    {
+     "src": "/tmp/supercut/full1080/jV1vkHv4zq8.mp4",
+     "key": "gem23",
+     "vs": 47.96,
+     "word": "Gemini",
+     "label": "Google \u00b7 Gemini 1.0",
+     "year": "2023"
+    }
+   ]
+  },
+  {
+   "id": 6,
+   "kind": "clip",
+   "t0": 6.7,
+   "dur": 0.9,
+   "era": "2023",
+   "year": "2023",
+   "panels": [
+    {
+     "src": "/tmp/supercut/full1080/U9mJuUkhUzk.mp4",
+     "key": "devday23",
+     "vs": 75.54,
+     "word": "ChatGPT",
+     "label": "OpenAI \u00b7 DevDay 2023",
+     "year": "2023"
+    }
+   ]
+  },
+  {
+   "id": 7,
+   "kind": "clip",
+   "t0": 7.6,
+   "dur": 0.8,
+   "era": "2023",
+   "year": "2023",
+   "panels": [
+    {
+     "src": "/tmp/supercut/full1080/outcGtbnMuQ.mp4",
+     "key": "gpt4",
+     "vs": 15.38,
+     "word": "OpenAI",
+     "label": "OpenAI \u00b7 GPT-4 launch",
+     "year": "2023"
+    }
+   ]
+  },
+  {
+   "id": 8,
+   "kind": "clip",
+   "t0": 8.4,
+   "dur": 0.8,
+   "era": "2023",
+   "year": "2023",
+   "panels": [
+    {
+     "src": "/tmp/supercut/full1080/U9mJuUkhUzk.mp4",
+     "key": "devday23",
+     "vs": 60.7,
+     "word": "GPT-4",
+     "label": "OpenAI \u00b7 DevDay 2023",
+     "year": "2023"
+    }
+   ]
+  },
+  {
+   "id": 9,
+   "kind": "clip",
+   "t0": 9.2,
+   "dur": 0.8,
+   "era": "2024",
+   "year": "2024",
+   "panels": [
+    {
+     "src": "/tmp/supercut/full1080/_fuimO6ErKI.mp4",
+     "key": "gemera24",
+     "vs": 44.62,
+     "word": "Gemini",
+     "label": "Google \u00b7 Gemini era",
+     "year": "2024"
+    }
+   ]
+  },
+  {
+   "id": 10,
+   "kind": "clip",
+   "t0": 10.0,
+   "dur": 0.7,
+   "era": "2024",
+   "year": "2024",
+   "panels": [
+    {
+     "src": "/tmp/supercut/full1080/Fs0t6SdODd8.mp4",
+     "key": "gem2",
+     "vs": 21.36,
+     "word": "AI",
+     "label": "Google \u00b7 Gemini 2.0",
+     "year": "2024"
+    }
+   ]
+  },
+  {
+   "id": 11,
+   "kind": "clip",
+   "t0": 10.7,
+   "dur": 0.7,
+   "era": "2024",
+   "year": "2024",
+   "panels": [
+    {
+     "src": "/tmp/supercut/full1080/ODaHJzOyVCQ.mp4",
+     "key": "claude24",
+     "vs": 38.54,
+     "word": "Claude",
+     "label": "Anthropic \u00b7 Computer use",
+     "year": "2024"
+    }
+   ]
+  },
+  {
+   "id": 12,
+   "kind": "clip",
+   "t0": 11.4,
+   "dur": 0.6666666666666666,
+   "era": "2024",
+   "year": "2024",
+   "panels": [
+    {
+     "src": "/tmp/supercut/full1080/Fs0t6SdODd8.mp4",
+     "key": "gem2",
+     "vs": 18.38,
+     "word": "Gemini",
+     "label": "Google \u00b7 Gemini 2.0",
+     "year": "2024"
+    }
+   ]
+  },
+  {
+   "id": 13,
+   "kind": "clip",
+   "t0": 12.066666666666666,
+   "dur": 0.6666666666666666,
+   "era": "2025",
+   "year": "2025",
+   "panels": [
+    {
+     "src": "/tmp/supercut/full1080/CSE77wAdDLg.mp4",
+     "key": "op",
+     "vs": 79.22,
+     "word": "agent",
+     "label": "OpenAI \u00b7 Operator launch",
+     "year": "2025"
+    }
+   ]
+  },
+  {
+   "id": 14,
+   "kind": "clip",
+   "t0": 12.733333333333333,
+   "dur": 0.6,
+   "era": "2025",
+   "year": "2025",
+   "panels": [
+    {
+     "src": "/tmp/supercut/full1080/CSE77wAdDLg.mp4",
+     "key": "op",
+     "vs": 13.26,
+     "word": "AI",
+     "label": "OpenAI \u00b7 Operator launch",
+     "year": "2025"
+    }
+   ]
+  },
+  {
+   "id": 15,
+   "kind": "clip",
+   "t0": 13.333333333333334,
+   "dur": 0.5333333333333333,
+   "era": "2025",
+   "year": "2025",
+   "panels": [
+    {
+     "src": "/tmp/supercut/full1080/8UWKxJbjriY.mp4",
+     "key": "atlas",
+     "vs": 8.72,
+     "word": "browser",
+     "label": "OpenAI \u00b7 ChatGPT Atlas launch",
+     "year": "2025"
+    }
+   ]
+  },
+  {
+   "id": 16,
+   "kind": "clip",
+   "t0": 13.866666666666667,
+   "dur": 0.5,
+   "era": "2025",
+   "year": "2025",
+   "panels": [
+    {
+     "src": "/tmp/supercut/full1080/CSE77wAdDLg.mp4",
+     "key": "op",
+     "vs": 12.48,
+     "word": "agents",
+     "label": "OpenAI \u00b7 Operator launch",
+     "year": "2025"
+    }
+   ]
+  },
+  {
+   "id": 17,
+   "kind": "clip",
+   "t0": 14.366666666666667,
+   "dur": 0.5,
+   "era": "2025",
+   "year": "2025",
+   "panels": [
+    {
+     "src": "/tmp/supercut/full1080/8UWKxJbjriY.mp4",
+     "key": "atlas",
+     "vs": 69.46,
+     "word": "agent",
+     "label": "OpenAI \u00b7 ChatGPT Atlas launch",
+     "year": "2025"
+    }
+   ]
+  },
+  {
+   "id": 18,
+   "kind": "card",
+   "t0": 14.866666666666667,
+   "dur": 0.9,
+   "era": "2026",
+   "card": "atlas_retire"
+  },
+  {
+   "id": 19,
+   "kind": "clip",
+   "t0": 15.766666666666667,
+   "dur": 0.5,
+   "era": "2026",
+   "year": "2026",
+   "panels": [
+    {
+     "src": "/tmp/supercut/full1080/duHhImuaZGU.mp4",
+     "key": "io26",
+     "vs": 116.32,
+     "word": "Gemini",
+     "label": "Google \u00b7 I/O 2026",
+     "year": "2026"
+    }
+   ]
+  },
+  {
+   "id": 20,
+   "kind": "clip",
+   "t0": 16.266666666666666,
+   "dur": 0.4666666666666667,
+   "era": "2026",
+   "year": "2026",
+   "panels": [
+    {
+     "src": "/tmp/supercut/full1080/hF8swzNR1-o.mp4",
+     "key": "wwdc26",
+     "vs": 143.92,
+     "word": "Siri",
+     "label": "Apple \u00b7 WWDC 2026",
+     "year": "2026"
+    }
+   ]
+  },
+  {
+   "id": 21,
+   "kind": "clip",
+   "t0": 16.733333333333334,
+   "dur": 0.4666666666666667,
+   "era": "2026",
+   "year": "2026",
+   "panels": [
+    {
+     "src": "/tmp/supercut/full1080/Wq45rvPGNHs.mp4",
+     "key": "work26",
+     "vs": 80.0,
+     "word": "work",
+     "label": "OpenAI \u00b7 ChatGPT Work",
+     "year": "2026"
+    }
+   ]
+  },
+  {
+   "id": 22,
+   "kind": "clip",
+   "t0": 17.2,
+   "dur": 0.4666666666666667,
+   "era": "2026",
+   "year": "2026",
+   "panels": [
+    {
+     "src": "/tmp/supercut/full1080/Fls_onRviPM.mp4",
+     "key": "devday26",
+     "vs": 52.34,
+     "word": "Codex",
+     "label": "OpenAI \u00b7 DevDay 2026",
+     "year": "2026"
+    }
+   ]
+  },
+  {
+   "id": 23,
+   "kind": "clip",
+   "t0": 17.666666666666668,
+   "dur": 0.4,
+   "era": "2026",
+   "year": "2026",
+   "panels": [
+    {
+     "src": "/tmp/supercut/full1080/F1_0Lkp16Rc.mp4",
+     "key": "grok26",
+     "vs": 66.86,
+     "word": "agent",
+     "label": "xAI \u00b7 Grok Bot",
+     "year": "2026"
+    }
+   ]
+  },
+  {
+   "id": 24,
+   "kind": "clip",
+   "t0": 18.066666666666666,
+   "dur": 0.4,
+   "era": "2026",
+   "year": "2026",
+   "panels": [
+    {
+     "src": "/tmp/supercut/full1080/xr4VUV-7rN0.mp4",
+     "key": "mistral26",
+     "vs": 28.14,
+     "word": "AI",
+     "label": "Mistral \u00b7 Microsoft",
+     "year": "2026"
+    }
+   ]
+  },
+  {
+   "id": 25,
+   "kind": "clip",
+   "t0": 18.466666666666665,
+   "dur": 0.4,
+   "era": "2026",
+   "year": "2026",
+   "panels": [
+    {
+     "src": "/tmp/supercut/full1080/duHhImuaZGU.mp4",
+     "key": "io26",
+     "vs": 77.2,
+     "word": "AI",
+     "label": "Google \u00b7 I/O 2026",
+     "year": "2026"
+    }
+   ]
+  },
+  {
+   "id": 26,
+   "kind": "clip",
+   "t0": 18.866666666666667,
+   "dur": 0.4,
+   "era": "2026",
+   "year": "2026",
+   "panels": [
+    {
+     "src": "/tmp/supercut/full1080/Wq45rvPGNHs.mp4",
+     "key": "work26",
+     "vs": 143.34,
+     "word": "ChatGPT",
+     "label": "OpenAI \u00b7 ChatGPT Work",
+     "year": "2026"
+    }
+   ]
+  },
+  {
+   "id": 27,
+   "kind": "stack",
+   "t0": 19.266666666666666,
+   "dur": 0.5,
+   "era": "collage",
+   "year": "2026",
+   "panels": [
+    {
+     "src": "/tmp/supercut/full1080/duHhImuaZGU.mp4",
+     "key": "io26",
+     "vs": 80.68,
+     "word": "AI",
+     "label": "Google \u00b7 I/O 2026",
+     "year": "2026"
+    },
+    {
+     "src": "/tmp/supercut/full1080/Fls_onRviPM.mp4",
+     "key": "devday26",
+     "vs": 95.74,
+     "word": "AI",
+     "label": "OpenAI \u00b7 DevDay 2026",
+     "year": "2026"
+    }
+   ]
+  },
+  {
+   "id": 28,
+   "kind": "stack",
+   "t0": 19.766666666666666,
+   "dur": 0.5,
+   "era": "collage",
+   "year": "2026",
+   "panels": [
+    {
+     "src": "/tmp/supercut/full1080/Wq45rvPGNHs.mp4",
+     "key": "work26",
+     "vs": 81.48,
+     "word": "work",
+     "label": "OpenAI \u00b7 ChatGPT Work",
+     "year": "2026"
+    },
+    {
+     "src": "/tmp/supercut/full1080/F1_0Lkp16Rc.mp4",
+     "key": "grok26",
+     "vs": 29.86,
+     "word": "work",
+     "label": "xAI \u00b7 Grok Bot",
+     "year": "2026"
+    }
+   ]
+  },
+  {
+   "id": 29,
+   "kind": "stack",
+   "t0": 20.266666666666666,
+   "dur": 0.5,
+   "era": "collage",
+   "year": "2023",
+   "panels": [
+    {
+     "src": "/tmp/supercut/full1080/U9mJuUkhUzk.mp4",
+     "key": "devday23",
+     "vs": 135.48,
+     "word": "AI",
+     "label": "OpenAI \u00b7 DevDay 2023",
+     "year": "2023"
+    },
+    {
+     "src": "/tmp/supercut/full1080/8UWKxJbjriY.mp4",
+     "key": "atlas",
+     "vs": 18.22,
+     "word": "AI",
+     "label": "OpenAI \u00b7 ChatGPT Atlas launch",
+     "year": "2025"
+    },
+    {
+     "src": "/tmp/supercut/full1080/jV1vkHv4zq8.mp4",
+     "key": "gem23",
+     "vs": 2.86,
+     "word": "AI",
+     "label": "Google \u00b7 Gemini 1.0",
+     "year": "2023"
+    }
+   ]
+  },
+  {
+   "id": 30,
+   "kind": "stack",
+   "t0": 20.766666666666666,
+   "dur": 0.4666666666666667,
+   "era": "collage",
+   "year": "2026",
+   "panels": [
+    {
+     "src": "/tmp/supercut/full1080/Fls_onRviPM.mp4",
+     "key": "devday26",
+     "vs": 156.7,
+     "word": "agents",
+     "label": "OpenAI \u00b7 DevDay 2026",
+     "year": "2026"
+    },
+    {
+     "src": "/tmp/supercut/full1080/CSE77wAdDLg.mp4",
+     "key": "op",
+     "vs": 67.16,
+     "word": "agents",
+     "label": "OpenAI \u00b7 Operator launch",
+     "year": "2025"
+    }
+   ]
+  },
+  {
+   "id": 31,
+   "kind": "stack",
+   "t0": 21.233333333333334,
+   "dur": 0.4666666666666667,
+   "era": "collage",
+   "year": "2024",
+   "panels": [
+    {
+     "src": "/tmp/supercut/full1080/Fs0t6SdODd8.mp4",
+     "key": "gem2",
+     "vs": 30.6,
+     "word": "Gemini",
+     "label": "Google \u00b7 Gemini 2.0",
+     "year": "2024"
+    },
+    {
+     "src": "/tmp/supercut/full1080/jV1vkHv4zq8.mp4",
+     "key": "gem23",
+     "vs": 52.64,
+     "word": "Gemini",
+     "label": "Google \u00b7 Gemini 1.0",
+     "year": "2023"
+    },
+    {
+     "src": "/tmp/supercut/full1080/duHhImuaZGU.mp4",
+     "key": "io26",
+     "vs": 129.14,
+     "word": "Gemini",
+     "label": "Google \u00b7 I/O 2026",
+     "year": "2026"
+    }
+   ]
+  },
+  {
+   "id": 32,
+   "kind": "clip",
+   "t0": 21.7,
+   "dur": 0.8666666666666667,
+   "era": "sentence",
+   "year": "2025",
+   "panels": [
+    {
+     "src": "/tmp/supercut/full1080/8UWKxJbjriY.mp4",
+     "key": "atlas",
+     "vs": 18.22,
+     "word": "AI",
+     "label": "OpenAI \u00b7 ChatGPT Atlas launch",
+     "year": "2025"
+    }
+   ],
+   "sentence": [
+    "AI"
+   ],
+   "cur": 0
+  },
+  {
+   "id": 33,
+   "kind": "clip",
+   "t0": 22.566666666666666,
+   "dur": 0.8666666666666667,
+   "era": "sentence",
+   "year": "2026",
+   "panels": [
+    {
+     "src": "/tmp/supercut/full1080/Fls_onRviPM.mp4",
+     "key": "devday26",
+     "vs": 156.7,
+     "word": "agents",
+     "label": "OpenAI \u00b7 DevDay 2026",
+     "year": "2026"
+    }
+   ],
+   "sentence": [
+    "AI",
+    "agents"
+   ],
+   "cur": 1
+  },
+  {
+   "id": 34,
+   "kind": "clip",
+   "t0": 23.433333333333334,
+   "dur": 0.8666666666666667,
+   "era": "sentence",
+   "year": "2026",
+   "panels": [
+    {
+     "src": "/tmp/supercut/full1080/Wq45rvPGNHs.mp4",
+     "key": "work26",
+     "vs": 360.08,
+     "word": "will",
+     "label": "OpenAI \u00b7 ChatGPT Work",
+     "year": "2026"
+    }
+   ],
+   "sentence": [
+    "AI",
+    "agents",
+    "will"
+   ],
+   "cur": 2
+  },
+  {
+   "id": 35,
+   "kind": "clip",
+   "t0": 24.3,
+   "dur": 0.8666666666666667,
+   "era": "sentence",
+   "year": "2026",
+   "panels": [
+    {
+     "src": "/tmp/supercut/full1080/hF8swzNR1-o.mp4",
+     "key": "wwdc26",
+     "vs": 120.22,
+     "word": "do",
+     "label": "Apple \u00b7 WWDC 2026",
+     "year": "2026"
+    }
+   ],
+   "sentence": [
+    "AI",
+    "agents",
+    "will",
+    "do"
+   ],
+   "cur": 3
+  },
+  {
+   "id": 36,
+   "kind": "clip",
+   "t0": 25.166666666666668,
+   "dur": 0.8666666666666667,
+   "era": "sentence",
+   "year": "2026",
+   "panels": [
+    {
+     "src": "/tmp/supercut/full1080/F1_0Lkp16Rc.mp4",
+     "key": "grok26",
+     "vs": 90.68,
+     "word": "everything",
+     "label": "xAI \u00b7 Grok Bot",
+     "year": "2026"
+    }
+   ],
+   "sentence": [
+    "AI",
+    "agents",
+    "will",
+    "do",
+    "everything"
+   ],
+   "cur": 4
+  },
+  {
+   "id": 37,
+   "kind": "clip",
+   "t0": 26.033333333333335,
+   "dur": 0.8666666666666667,
+   "era": "sentence",
+   "year": "2025",
+   "panels": [
+    {
+     "src": "/tmp/supercut/full1080/CSE77wAdDLg.mp4",
+     "key": "op",
+     "vs": 14.88,
+     "word": "for you",
+     "label": "OpenAI \u00b7 Operator launch",
+     "year": "2025"
+    }
+   ],
+   "sentence": [
+    "AI",
+    "agents",
+    "will",
+    "do",
+    "everything",
+    "for you"
+   ],
+   "cur": 5
+  },
+  {
+   "id": 38,
+   "kind": "card",
+   "t0": 26.9,
+   "dur": 0.26666666666666666,
+   "era": "flash",
+   "card": "name",
+   "text": "OpenAI"
+  },
+  {
+   "id": 39,
+   "kind": "card",
+   "t0": 27.166666666666668,
+   "dur": 0.26666666666666666,
+   "era": "flash",
+   "card": "name",
+   "text": "Google"
+  },
+  {
+   "id": 40,
+   "kind": "card",
+   "t0": 27.433333333333334,
+   "dur": 0.26666666666666666,
+   "era": "flash",
+   "card": "name",
+   "text": "Apple"
+  },
+  {
+   "id": 41,
+   "kind": "card",
+   "t0": 27.7,
+   "dur": 0.26666666666666666,
+   "era": "flash",
+   "card": "name",
+   "text": "Nvidia"
+  },
+  {
+   "id": 42,
+   "kind": "card",
+   "t0": 27.966666666666665,
+   "dur": 0.26666666666666666,
+   "era": "flash",
+   "card": "name",
+   "text": "Anthropic"
+  },
+  {
+   "id": 43,
+   "kind": "card",
+   "t0": 28.233333333333334,
+   "dur": 0.26666666666666666,
+   "era": "flash",
+   "card": "name",
+   "text": "Meta"
+  },
+  {
+   "id": 44,
+   "kind": "card",
+   "t0": 28.5,
+   "dur": 0.26666666666666666,
+   "era": "flash",
+   "card": "name",
+   "text": "Microsoft"
+  },
+  {
+   "id": 45,
+   "kind": "card",
+   "t0": 28.766666666666666,
+   "dur": 0.26666666666666666,
+   "era": "flash",
+   "card": "name",
+   "text": "Perplexity"
+  },
+  {
+   "id": 46,
+   "kind": "card",
+   "t0": 29.033333333333335,
+   "dur": 0.26666666666666666,
+   "era": "flash",
+   "card": "name",
+   "text": "Mistral"
+  },
+  {
+   "id": 47,
+   "kind": "card",
+   "t0": 29.3,
+   "dur": 0.26666666666666666,
+   "era": "flash",
+   "card": "name",
+   "text": "xAI"
+  },
+  {
+   "id": 48,
+   "kind": "card",
+   "t0": 29.566666666666666,
+   "dur": 0.26666666666666666,
+   "era": "flash",
+   "card": "name",
+   "text": "DeepSeek"
+  },
+  {
+   "id": 49,
+   "kind": "card",
+   "t0": 29.833333333333332,
+   "dur": 0.26666666666666666,
+   "era": "flash",
+   "card": "name",
+   "text": "Amazon"
+  },
+  {
+   "id": 50,
+   "kind": "card",
+   "t0": 30.1,
+   "dur": 0.26666666666666666,
+   "era": "flash",
+   "card": "name",
+   "text": "Grok"
+  },
+  {
+   "id": 51,
+   "kind": "card",
+   "t0": 30.366666666666667,
+   "dur": 0.26666666666666666,
+   "era": "flash",
+   "card": "name",
+   "text": "Gemini"
+  },
+  {
+   "id": 52,
+   "kind": "black",
+   "t0": 30.633333333333333,
+   "dur": 1.0,
+   "era": "silence"
+  },
+  {
+   "id": 53,
+   "kind": "vo",
+   "t0": 31.633333333333333,
+   "dur": 6.0,
+   "era": "vo"
+  },
+  {
+   "id": 54,
+   "kind": "end",
+   "t0": 37.63333333333333,
+   "dur": 3.0,
+   "era": "end"
+  }
+ ],
+ "audio": [
+  {
+   "ev": 4,
+   "src": "/tmp/supercut/full1080/outcGtbnMuQ.mp4",
+   "key": "gpt4",
+   "ss": 8.8,
+   "dur": 1.04,
+   "t": 4.64,
+   "gain": 1.0,
+   "pan": 0.0,
+   "word": "GPT-4",
+   "role": "word",
+   "ws": 8.96,
+   "we": 9.5
+  },
+  {
+   "ev": 5,
+   "src": "/tmp/supercut/full1080/jV1vkHv4zq8.mp4",
+   "key": "gem23",
+   "ss": 47.8,
+   "dur": 0.88,
+   "t": 5.64,
+   "gain": 1.0,
+   "pan": 0.0,
+   "word": "Gemini",
+   "role": "word",
+   "ws": 47.96,
+   "we": 48.34
+  },
+  {
+   "ev": 6,
+   "src": "/tmp/supercut/full1080/U9mJuUkhUzk.mp4",
+   "key": "devday23",
+   "ss": 75.38,
+   "dur": 1.06,
+   "t": 6.54,
+   "gain": 1.0,
+   "pan": 0.0,
+   "word": "ChatGPT",
+   "role": "word",
+   "ws": 75.54,
+   "we": 76.1
+  },
+  {
+   "ev": 7,
+   "src": "/tmp/supercut/full1080/outcGtbnMuQ.mp4",
+   "key": "gpt4",
+   "ss": 15.22,
+   "dur": 0.86,
+   "t": 7.44,
+   "gain": 1.0,
+   "pan": 0.0,
+   "word": "OpenAI",
+   "role": "word",
+   "ws": 15.38,
+   "we": 15.74
+  },
+  {
+   "ev": 8,
+   "src": "/tmp/supercut/full1080/U9mJuUkhUzk.mp4",
+   "key": "devday23",
+   "ss": 60.54,
+   "dur": 1.12,
+   "t": 8.24,
+   "gain": 1.0,
+   "pan": 0.0,
+   "word": "GPT-4",
+   "role": "word",
+   "ws": 60.7,
+   "we": 61.32
+  },
+  {
+   "ev": 9,
+   "src": "/tmp/supercut/full1080/_fuimO6ErKI.mp4",
+   "key": "gemera24",
+   "ss": 44.46,
+   "dur": 1.08,
+   "t": 9.04,
+   "gain": 1.0,
+   "pan": 0.0,
+   "word": "Gemini",
+   "role": "word",
+   "ws": 44.62,
+   "we": 45.2
+  },
+  {
+   "ev": 10,
+   "src": "/tmp/supercut/full1080/Fs0t6SdODd8.mp4",
+   "key": "gem2",
+   "ss": 21.2,
+   "dur": 0.76,
+   "t": 9.84,
+   "gain": 1.0,
+   "pan": 0.0,
+   "word": "AI",
+   "role": "word",
+   "ws": 21.36,
+   "we": 21.62
+  },
+  {
+   "ev": 11,
+   "src": "/tmp/supercut/full1080/ODaHJzOyVCQ.mp4",
+   "key": "claude24",
+   "ss": 38.38,
+   "dur": 0.8,
+   "t": 10.54,
+   "gain": 1.0,
+   "pan": 0.0,
+   "word": "Claude",
+   "role": "word",
+   "ws": 38.54,
+   "we": 38.84
+  },
+  {
+   "ev": 12,
+   "src": "/tmp/supercut/full1080/Fs0t6SdODd8.mp4",
+   "key": "gem2",
+   "ss": 18.22,
+   "dur": 0.78,
+   "t": 11.24,
+   "gain": 1.0,
+   "pan": 0.0,
+   "word": "Gemini",
+   "role": "word",
+   "ws": 18.38,
+   "we": 18.66
+  },
+  {
+   "ev": 13,
+   "src": "/tmp/supercut/full1080/CSE77wAdDLg.mp4",
+   "key": "op",
+   "ss": 79.06,
+   "dur": 0.76,
+   "t": 11.907,
+   "gain": 1.0,
+   "pan": 0.0,
+   "word": "agent",
+   "role": "word",
+   "ws": 79.22,
+   "we": 79.48
+  },
+  {
+   "ev": 14,
+   "src": "/tmp/supercut/full1080/CSE77wAdDLg.mp4",
+   "key": "op",
+   "ss": 13.1,
+   "dur": 0.72,
+   "t": 12.573,
+   "gain": 1.0,
+   "pan": 0.0,
+   "word": "AI",
+   "role": "word",
+   "ws": 13.26,
+   "we": 13.48
+  },
+  {
+   "ev": 15,
+   "src": "/tmp/supercut/full1080/8UWKxJbjriY.mp4",
+   "key": "atlas",
+   "ss": 8.56,
+   "dur": 0.98,
+   "t": 13.173,
+   "gain": 1.0,
+   "pan": 0.0,
+   "word": "browser",
+   "role": "word",
+   "ws": 8.72,
+   "we": 9.2
+  },
+  {
+   "ev": 16,
+   "src": "/tmp/supercut/full1080/CSE77wAdDLg.mp4",
+   "key": "op",
+   "ss": 12.32,
+   "dur": 0.96,
+   "t": 13.707,
+   "gain": 1.0,
+   "pan": 0.0,
+   "word": "agents",
+   "role": "word",
+   "ws": 12.48,
+   "we": 12.94
+  },
+  {
+   "ev": 17,
+   "src": "/tmp/supercut/full1080/8UWKxJbjriY.mp4",
+   "key": "atlas",
+   "ss": 69.3,
+   "dur": 0.8,
+   "t": 14.207,
+   "gain": 1.0,
+   "pan": 0.0,
+   "word": "agent",
+   "role": "word",
+   "ws": 69.46,
+   "we": 69.76
+  },
+  {
+   "ev": 19,
+   "src": "/tmp/supercut/full1080/duHhImuaZGU.mp4",
+   "key": "io26",
+   "ss": 116.16,
+   "dur": 0.82,
+   "t": 15.607,
+   "gain": 1.0,
+   "pan": 0.0,
+   "word": "Gemini",
+   "role": "word",
+   "ws": 116.32,
+   "we": 116.64
+  },
+  {
+   "ev": 20,
+   "src": "/tmp/supercut/full1080/hF8swzNR1-o.mp4",
+   "key": "wwdc26",
+   "ss": 143.76,
+   "dur": 0.94,
+   "t": 16.107,
+   "gain": 1.0,
+   "pan": 0.0,
+   "word": "Siri",
+   "role": "word",
+   "ws": 143.92,
+   "we": 144.36
+  },
+  {
+   "ev": 21,
+   "src": "/tmp/supercut/full1080/Wq45rvPGNHs.mp4",
+   "key": "work26",
+   "ss": 79.84,
+   "dur": 0.74,
+   "t": 16.573,
+   "gain": 1.0,
+   "pan": 0.0,
+   "word": "work",
+   "role": "word",
+   "ws": 80.0,
+   "we": 80.24
+  },
+  {
+   "ev": 22,
+   "src": "/tmp/supercut/full1080/Fls_onRviPM.mp4",
+   "key": "devday26",
+   "ss": 52.18,
+   "dur": 0.84,
+   "t": 17.04,
+   "gain": 1.0,
+   "pan": 0.0,
+   "word": "Codex",
+   "role": "word",
+   "ws": 52.34,
+   "we": 52.68
+  },
+  {
+   "ev": 23,
+   "src": "/tmp/supercut/full1080/F1_0Lkp16Rc.mp4",
+   "key": "grok26",
+   "ss": 66.7,
+   "dur": 0.88,
+   "t": 17.507,
+   "gain": 1.0,
+   "pan": 0.0,
+   "word": "agent",
+   "role": "word",
+   "ws": 66.86,
+   "we": 67.24
+  },
+  {
+   "ev": 24,
+   "src": "/tmp/supercut/full1080/xr4VUV-7rN0.mp4",
+   "key": "mistral26",
+   "ss": 27.98,
+   "dur": 0.9,
+   "t": 17.907,
+   "gain": 1.0,
+   "pan": 0.0,
+   "word": "AI",
+   "role": "word",
+   "ws": 28.14,
+   "we": 28.54
+  },
+  {
+   "ev": 25,
+   "src": "/tmp/supercut/full1080/duHhImuaZGU.mp4",
+   "key": "io26",
+   "ss": 77.04,
+   "dur": 0.74,
+   "t": 18.307,
+   "gain": 1.0,
+   "pan": 0.0,
+   "word": "AI",
+   "role": "word",
+   "ws": 77.2,
+   "we": 77.44
+  },
+  {
+   "ev": 26,
+   "src": "/tmp/supercut/full1080/Wq45rvPGNHs.mp4",
+   "key": "work26",
+   "ss": 143.18,
+   "dur": 1.12,
+   "t": 18.707,
+   "gain": 1.0,
+   "pan": 0.0,
+   "word": "ChatGPT",
+   "role": "word",
+   "ws": 143.34,
+   "we": 143.96
+  },
+  {
+   "ev": 27,
+   "src": "/tmp/supercut/full1080/duHhImuaZGU.mp4",
+   "key": "io26",
+   "ss": 80.52,
+   "dur": 1.14,
+   "t": 19.107,
+   "gain": 0.8,
+   "pan": -0.4,
+   "word": "AI",
+   "role": "word",
+   "ws": 80.68,
+   "we": 81.32
+  },
+  {
+   "ev": 27,
+   "src": "/tmp/supercut/full1080/Fls_onRviPM.mp4",
+   "key": "devday26",
+   "ss": 95.58,
+   "dur": 0.74,
+   "t": 19.157,
+   "gain": 0.8,
+   "pan": 0.4,
+   "word": "AI",
+   "role": "word",
+   "ws": 95.74,
+   "we": 95.98
+  },
+  {
+   "ev": 28,
+   "src": "/tmp/supercut/full1080/Wq45rvPGNHs.mp4",
+   "key": "work26",
+   "ss": 81.32,
+   "dur": 0.7,
+   "t": 19.607,
+   "gain": 0.8,
+   "pan": -0.4,
+   "word": "work",
+   "role": "word",
+   "ws": 81.48,
+   "we": 81.68
+  },
+  {
+   "ev": 28,
+   "src": "/tmp/supercut/full1080/F1_0Lkp16Rc.mp4",
+   "key": "grok26",
+   "ss": 29.7,
+   "dur": 0.8,
+   "t": 19.657,
+   "gain": 0.8,
+   "pan": 0.4,
+   "word": "work",
+   "role": "word",
+   "ws": 29.86,
+   "we": 30.16
+  },
+  {
+   "ev": 29,
+   "src": "/tmp/supercut/full1080/U9mJuUkhUzk.mp4",
+   "key": "devday23",
+   "ss": 135.32,
+   "dur": 0.82,
+   "t": 20.107,
+   "gain": 0.8,
+   "pan": -0.4,
+   "word": "AI",
+   "role": "word",
+   "ws": 135.48,
+   "we": 135.8
+  },
+  {
+   "ev": 29,
+   "src": "/tmp/supercut/full1080/8UWKxJbjriY.mp4",
+   "key": "atlas",
+   "ss": 18.06,
+   "dur": 0.74,
+   "t": 20.157,
+   "gain": 0.8,
+   "pan": 0.4,
+   "word": "AI",
+   "role": "word",
+   "ws": 18.22,
+   "we": 18.46
+  },
+  {
+   "ev": 29,
+   "src": "/tmp/supercut/full1080/jV1vkHv4zq8.mp4",
+   "key": "gem23",
+   "ss": 2.7,
+   "dur": 0.7,
+   "t": 20.207,
+   "gain": 0.8,
+   "pan": -0.4,
+   "word": "AI",
+   "role": "word",
+   "ws": 2.86,
+   "we": 3.06
+  },
+  {
+   "ev": 30,
+   "src": "/tmp/supercut/full1080/Fls_onRviPM.mp4",
+   "key": "devday26",
+   "ss": 156.54,
+   "dur": 1.12,
+   "t": 20.607,
+   "gain": 0.8,
+   "pan": -0.4,
+   "word": "agents",
+   "role": "word",
+   "ws": 156.7,
+   "we": 157.32
+  },
+  {
+   "ev": 30,
+   "src": "/tmp/supercut/full1080/CSE77wAdDLg.mp4",
+   "key": "op",
+   "ss": 67.0,
+   "dur": 0.78,
+   "t": 20.657,
+   "gain": 0.8,
+   "pan": 0.4,
+   "word": "agents",
+   "role": "word",
+   "ws": 67.16,
+   "we": 67.44
+  },
+  {
+   "ev": 31,
+   "src": "/tmp/supercut/full1080/Fs0t6SdODd8.mp4",
+   "key": "gem2",
+   "ss": 30.44,
+   "dur": 1.14,
+   "t": 21.073,
+   "gain": 0.8,
+   "pan": -0.4,
+   "word": "Gemini",
+   "role": "word",
+   "ws": 30.6,
+   "we": 31.24
+  },
+  {
+   "ev": 31,
+   "src": "/tmp/supercut/full1080/jV1vkHv4zq8.mp4",
+   "key": "gem23",
+   "ss": 52.48,
+   "dur": 0.8,
+   "t": 21.123,
+   "gain": 0.8,
+   "pan": 0.4,
+   "word": "Gemini",
+   "role": "word",
+   "ws": 52.64,
+   "we": 52.94
+  },
+  {
+   "ev": 31,
+   "src": "/tmp/supercut/full1080/duHhImuaZGU.mp4",
+   "key": "io26",
+   "ss": 128.98,
+   "dur": 0.88,
+   "t": 21.173,
+   "gain": 0.8,
+   "pan": -0.4,
+   "word": "Gemini",
+   "role": "word",
+   "ws": 129.14,
+   "we": 129.52
+  },
+  {
+   "ev": 32,
+   "src": "/tmp/supercut/full1080/8UWKxJbjriY.mp4",
+   "key": "atlas",
+   "ss": 18.06,
+   "dur": 0.74,
+   "t": 21.54,
+   "gain": 1.0,
+   "pan": 0.0,
+   "word": "AI",
+   "role": "sentence",
+   "ws": 18.22,
+   "we": 18.46
+  },
+  {
+   "ev": 33,
+   "src": "/tmp/supercut/full1080/Fls_onRviPM.mp4",
+   "key": "devday26",
+   "ss": 156.54,
+   "dur": 1.12,
+   "t": 22.407,
+   "gain": 1.0,
+   "pan": 0.0,
+   "word": "agents",
+   "role": "sentence",
+   "ws": 156.7,
+   "we": 157.32
+  },
+  {
+   "ev": 34,
+   "src": "/tmp/supercut/full1080/Wq45rvPGNHs.mp4",
+   "key": "work26",
+   "ss": 359.92,
+   "dur": 0.78,
+   "t": 23.273,
+   "gain": 1.0,
+   "pan": 0.0,
+   "word": "will",
+   "role": "sentence",
+   "ws": 360.08,
+   "we": 360.36
+  },
+  {
+   "ev": 35,
+   "src": "/tmp/supercut/full1080/hF8swzNR1-o.mp4",
+   "key": "wwdc26",
+   "ss": 120.06,
+   "dur": 0.68,
+   "t": 24.14,
+   "gain": 1.0,
+   "pan": 0.0,
+   "word": "do",
+   "role": "sentence",
+   "ws": 120.22,
+   "we": 120.4
+  },
+  {
+   "ev": 36,
+   "src": "/tmp/supercut/full1080/F1_0Lkp16Rc.mp4",
+   "key": "grok26",
+   "ss": 90.52,
+   "dur": 0.88,
+   "t": 25.007,
+   "gain": 1.0,
+   "pan": 0.0,
+   "word": "everything",
+   "role": "sentence",
+   "ws": 90.68,
+   "we": 91.06
+  },
+  {
+   "ev": 37,
+   "src": "/tmp/supercut/full1080/CSE77wAdDLg.mp4",
+   "key": "op",
+   "ss": 14.72,
+   "dur": 0.76,
+   "t": 25.873,
+   "gain": 1.0,
+   "pan": 0.0,
+   "word": "for you",
+   "role": "sentence",
+   "ws": 14.88,
+   "we": 15.14
+  },
+  {
+   "ev": 38,
+   "src": "/tmp/supercut/full1080/CSE77wAdDLg.mp4",
+   "key": "op",
+   "ss": 486.0,
+   "dur": 0.9,
+   "t": 26.74,
+   "gain": 0.7,
+   "pan": 0.5,
+   "word": "agents",
+   "role": "flash",
+   "ws": 486.16,
+   "we": 486.56
+  },
+  {
+   "ev": 39,
+   "src": "/tmp/supercut/full1080/8UWKxJbjriY.mp4",
+   "key": "atlas",
+   "ss": 18.06,
+   "dur": 0.74,
+   "t": 27.007,
+   "gain": 0.7214285714285714,
+   "pan": -0.5,
+   "word": "AI",
+   "role": "flash",
+   "ws": 18.22,
+   "we": 18.46
+  },
+  {
+   "ev": 40,
+   "src": "/tmp/supercut/full1080/hF8swzNR1-o.mp4",
+   "key": "wwdc26",
+   "ss": 142.62,
+   "dur": 1.04,
+   "t": 27.273,
+   "gain": 0.7428571428571428,
+   "pan": 0.5,
+   "word": "Intelligence",
+   "role": "flash",
+   "ws": 142.78,
+   "we": 143.32
+  },
+  {
+   "ev": 41,
+   "src": "/tmp/supercut/full1080/Fls_onRviPM.mp4",
+   "key": "devday26",
+   "ss": 156.54,
+   "dur": 1.12,
+   "t": 27.54,
+   "gain": 0.7642857142857142,
+   "pan": -0.5,
+   "word": "agents",
+   "role": "flash",
+   "ws": 156.7,
+   "we": 157.32
+  },
+  {
+   "ev": 42,
+   "src": "/tmp/supercut/full1080/Fs0t6SdODd8.mp4",
+   "key": "gem2",
+   "ss": 22.32,
+   "dur": 1.14,
+   "t": 27.807,
+   "gain": 0.7857142857142857,
+   "pan": 0.5,
+   "word": "agents",
+   "role": "flash",
+   "ws": 22.48,
+   "we": 23.12
+  },
+  {
+   "ev": 43,
+   "src": "/tmp/supercut/full1080/Wq45rvPGNHs.mp4",
+   "key": "work26",
+   "ss": 150.42,
+   "dur": 0.96,
+   "t": 28.073,
+   "gain": 0.807142857142857,
+   "pan": -0.5,
+   "word": "ChatGPT",
+   "role": "flash",
+   "ws": 150.58,
+   "we": 151.04
+  },
+  {
+   "ev": 44,
+   "src": "/tmp/supercut/full1080/ODaHJzOyVCQ.mp4",
+   "key": "claude24",
+   "ss": 38.38,
+   "dur": 0.8,
+   "t": 28.34,
+   "gain": 0.8285714285714285,
+   "pan": 0.5,
+   "word": "Claude",
+   "role": "flash",
+   "ws": 38.54,
+   "we": 38.84
+  },
+  {
+   "ev": 45,
+   "src": "/tmp/supercut/full1080/CSE77wAdDLg.mp4",
+   "key": "op",
+   "ss": 19.96,
+   "dur": 0.7,
+   "t": 28.607,
+   "gain": 0.85,
+   "pan": -0.5,
+   "word": "AI",
+   "role": "flash",
+   "ws": 20.12,
+   "we": 20.32
+  },
+  {
+   "ev": 46,
+   "src": "/tmp/supercut/full1080/F1_0Lkp16Rc.mp4",
+   "key": "grok26",
+   "ss": 92.28,
+   "dur": 1.02,
+   "t": 28.873,
+   "gain": 0.8714285714285714,
+   "pan": 0.5,
+   "word": "AI",
+   "role": "flash",
+   "ws": 92.44,
+   "we": 92.96
+  },
+  {
+   "ev": 47,
+   "src": "/tmp/supercut/full1080/hF8swzNR1-o.mp4",
+   "key": "wwdc26",
+   "ss": 194.58,
+   "dur": 0.9,
+   "t": 29.14,
+   "gain": 0.8928571428571428,
+   "pan": -0.5,
+   "word": "Siri",
+   "role": "flash",
+   "ws": 194.74,
+   "we": 195.14
+  },
+  {
+   "ev": 48,
+   "src": "/tmp/supercut/full1080/U9mJuUkhUzk.mp4",
+   "key": "devday23",
+   "ss": 145.58,
+   "dur": 0.78,
+   "t": 29.407,
+   "gain": 0.9142857142857143,
+   "pan": 0.5,
+   "word": "AI",
+   "role": "flash",
+   "ws": 145.74,
+   "we": 146.02
+  },
+  {
+   "ev": 49,
+   "src": "/tmp/supercut/full1080/8UWKxJbjriY.mp4",
+   "key": "atlas",
+   "ss": 203.61,
+   "dur": 1.16,
+   "t": 29.673,
+   "gain": 0.9357142857142857,
+   "pan": -0.5,
+   "word": "agent",
+   "role": "flash",
+   "ws": 203.77,
+   "we": 204.43
+  },
+  {
+   "ev": 50,
+   "src": "/tmp/supercut/full1080/duHhImuaZGU.mp4",
+   "key": "io26",
+   "ss": 132.52,
+   "dur": 0.84,
+   "t": 29.94,
+   "gain": 0.9571428571428571,
+   "pan": 0.5,
+   "word": "Gemini",
+   "role": "flash",
+   "ws": 132.68,
+   "we": 133.02
+  },
+  {
+   "ev": 51,
+   "src": "/tmp/supercut/full1080/jV1vkHv4zq8.mp4",
+   "key": "gem23",
+   "ss": 75.36,
+   "dur": 1.04,
+   "t": 30.207,
+   "gain": 0.9785714285714285,
+   "pan": -0.5,
+   "word": "Gemini",
+   "role": "flash",
+   "ws": 75.52,
+   "we": 76.06
+  }
+ ],
+ "markers": {
+  "intro_end": 1.6,
+  "early_end": 4.8,
+  "fast_start": 15.767,
+  "seq_start": 21.7,
+  "names_start": 26.9,
+  "black": 30.633,
+  "vo": 31.633,
+  "end": 37.633
+ },
+ "total": 40.633,
+ "pre": 0.16,
+ "post": 0.34
+}
