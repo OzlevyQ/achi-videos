@@ -22,8 +22,12 @@ DT = CFG['tr_end'] - CFG['tr_start']                     # trump clip
 TUN = 3.4; RW = 1.0
 evs = T['events']; M = T['markers']
 first = [e for e in evs if e['kind'] != 'card' or e.get('era') != 'intro'][0]   # first event after the open card
-chaos_evs = [e for e in evs if e['t0'] >= first['t0'] and e['t0'] < M['black'] - 1e-6]
-CH0 = DT + RW + TUN; shift = CH0 - first['t0']
+K = 0.78; F0 = first['t0']
+sc = lambda t: F0 + (t - F0) * K
+chaos_evs = [dict(e, t0=sc(e['t0']), dur=e['dur'] * K) for e in evs if e['t0'] >= F0 and e['t0'] < M['black'] - 1e-6]
+M = {k: (sc(v) if isinstance(v, (int, float)) and v >= F0 else v) for k, v in M.items()}
+for a in T['audio']: a['t'] = sc(a['t'])
+CH0 = DT + RW + TUN; shift = CH0 - F0
 CHL = M['black'] - first['t0']; CH1 = CH0 + CHL
 BOOM = 1.4; FIN0 = CH1 + BOOM; FINL = 18.6; TOTAL = FIN0 + FINL
 print('trump', DT, 'tunnel', TUN, 'chaos', round(CHL, 2), 'boom', BOOM, 'finale', FINL, 'TOTAL', round(TOTAL, 2))
@@ -48,9 +52,8 @@ def render_fx(ev):
     pre = f"scale=w='ceil(1080*(1.0{'+0.09' if era=='flash' else ''}+{punch}*pow(max(0,1-t/0.30),2)+{slow}*n/{N})/2)*2':h=-2:eval=frame{jit}"
     gradef = f"eq=saturation={sat}" + (f",noise=alls={gr}:allf=t" if gr else '')
     fc = (f"[0:v]{pre},rgbashift=rh=-16:bh=16:enable='lt(t,0.26)',{gradef},format=yuv420p[a];"
-          f"[1:v]fps=30,format=yuv420p,tpad=stop_mode=add:stop_duration=3:color=black[w];"
-          f"[a][w]blend=all_mode=screen:shortest=1,fade=t=in:st=0:d=0.1:color=white,format=yuv420p[v]")
-    run([FF, '-v', 'error', '-y', '-i', src, '-i', V3 + '/warp.mp4', '-filter_complex', fc, '-map', '[v]', '-frames:v', str(N)] + ENC + [out])
+          f"[a]fade=t=in:st=0:d=0.07:color=white,format=yuv420p[v]")
+    run([FF, '-v', 'error', '-y', '-i', src, '-filter_complex', fc, '-map', '[v]', '-frames:v', str(N)] + ENC + [out])
     return out
 
 def seg_rewind():
@@ -65,9 +68,8 @@ def seg_rewind():
 
 def seg_boom():
     out = B + '/boom.mp4'; N = nfr(BOOM)
-    fc = (f"color=c=black:s=1080x1920:r=30:d={BOOM}[b];[0:v]fps=30,format=yuv420p,tpad=stop_mode=add:stop_duration=3:color=black[w];"
-          f"[b][w]blend=all_mode=screen:shortest=1,fade=t=in:st=0:d=0.12:color=white,format=yuv420p[v]")
-    run([FF, '-v', 'error', '-y', '-i', V3 + '/warp.mp4', '-filter_complex', fc, '-map', '[v]', '-frames:v', str(N)] + ENC + [out]); return out
+    fc = f"color=c=white:s=1080x1920:r=30:d={BOOM},fade=t=out:st=0.05:d=0.45:color=black,format=yuv420p[v]"
+    run([FF, '-v', 'error', '-y', '-f', 'lavfi', '-i', f"color=c=white:s=1080x1920:r=30:d={BOOM}", '-vf', "fade=t=out:st=0.05:d=0.45:color=black,format=yuv420p", '-frames:v', str(N)] + ENC + [out]); return out
 
 def video():
     with cf.ThreadPoolExecutor(4) as ex:
@@ -127,57 +129,57 @@ def S(*xs):
     return o
 
 def audio(total):
-    N = int(total * SR); L = np.zeros(N); R = np.zeros(N)
-    def put(x, t, pan=0.0, gain=1.0):
+    N = int(total * SR); L = np.zeros(N); R = np.zeros(N); SL = np.zeros(N); SR_ = np.zeros(N)
+    def put(x, t, pan=0.0, gain=1.0, sp=False):
+        dl, dr = (SL, SR_) if sp else (L, R)
         i = int(round(t * SR))
         if i < 0: x = x[-i:]; i = 0
         n = min(len(x), N - i)
         if n <= 0: return
-        a = (pan + 1) * np.pi / 4; L[i:i + n] += x[:n] * np.cos(a) * gain * 1.414; R[i:i + n] += x[:n] * np.sin(a) * gain * 1.414
+        a = (pan + 1) * np.pi / 4; dl[i:i + n] += x[:n] * np.cos(a) * gain * 1.414; dr[i:i + n] += x[:n] * np.sin(a) * gain * 1.414
     # ---- 1. trump (real speech, from t=0)
-    tr = snippet(D + '/audio/k17vgtoa6m.m4a', CFG['tr_start'], DT); tr = norm_rms(tr, 0.13, 0.3, 6.0); tr = fade(tr, 0.01, 0.1)
-    put(tr, 0.0, 0.0, 1.0)
+    tr = snippet(D + '/audio/k17vgtoa6m.m4a', CFG['tr_start'], DT); tr = norm_rms(tr, 0.22, 0.3, 8.0); tr = fade(tr, 0.01, 0.1)
+    put(tr, 0.0, 0.0, 1.0, sp=True)
     # ---- 2. tunnel
     t_ = np.arange(int(RW*SR))/SR; ph = np.cumsum(2*np.pi*(2400*np.exp(-t_*1.5)+200)/SR)
     put(0.12*np.sin(ph)*np.minimum(1,t_*20)*np.minimum(1,(RW-t_)*10) + 0.25*lp_sweep(noise(RW),6000,1500)*0.4, DT, 0, 1.0)
     T0 = DT + RW
-    put(whoosh(0.5, 400, 7000), T0 - 0.1, 0, 0.5)
-    put(riser(TUN + 0.1, 1.0), T0, 0, 0.9)
+    put(whoosh(0.5, 400, 7000), T0 - 0.1, 0, 0.15)
+    put(riser(TUN + 0.1, 1.0), T0, 0, 0.3)
     k = 2025
     for kk in range(2025, 2015, -1):
         u = ((2026 - kk) / 10) ** (1 / 1.35); tt = T0 + u * TUN
-        put(S(tick(0.18), thud(0.25, 70 + (2025 - kk) * 6, 0.08, 0.2)), tt, 0, 1.0)
-    put(thud(0.8, 45, 0.3, 0.8), T0 + TUN - 0.02, 0, 1.0)
+        put(S(tick(0.18), thud(0.25, 70 + (2025 - kk) * 6, 0.08, 0.2)), tt, 0, 0.35)
+    put(thud(0.8, 45, 0.3, 0.8), T0 + TUN - 0.02, 0, 0.4)
     # ---- 3. chaos : bed + speech + fx
     def bump(t, amp, f0=55, dec=0.22): put(thud(amp, f0, dec, 0.4), t, 0, 1.0)
     t = 0.0
     fs, ss, ns, bk = M['fast_start'] + shift, M['seq_start'] + shift, M['names_start'] + shift, M['black'] + shift
     t = CH0
-    while t < fs: bump(t, 0.2); t += 1.0
+    pass
     r = 2.0
-    while t < ss: bump(t, 0.2, 60, 0.12); t += 1.0 / r; r = min(6.0, r + 0.12)
-    while t < ns: bump(t, 0.1, 60, 0.1); t += 1 / 6
+    pass
+    pass
     Ln = int((bk - ns) * SR); env = (np.arange(Ln) / Ln) ** 2; nz = np.diff(rng.standard_normal(Ln), prepend=0); xx = np.arange(Ln) / SR
-    put(0.14 * env * nz + 0.26 * env * np.sin(2 * np.pi * (40 + 20 * env) * xx), ns, 0, 1.0)
+    put(0.14 * env * nz + 0.26 * env * np.sin(2 * np.pi * (40 + 20 * env) * xx), ns, 0, 0.25)
     for a in T['audio']:
         if a['ev'] not in {e['id'] for e in chaos_evs}: continue
         x = snippet(a['src'], a['ss'], a['dur'])
         if len(x) < 100: continue
-        put(fade(norm_rms(x)), a['t'] + shift, a['pan'], a['gain'] * 0.8)
+        put(fade(norm_rms(x, 0.20, 0.4, 10.0)), a['t'] + shift, a['pan'] * 0.5, 1.0, sp=True)
     prev = None
     for e in chaos_evs:
         te = e['t0'] + shift; era = str(e.get('era', ''))
-        if era == 'flash': put(whoosh(0.18, 500, 6000), te - 0.04, -0.4 if e['id'] % 2 else 0.4, 0.22)
-        else: put(whoosh(0.3, 300, 5500), te - 0.08, 0, 0.3)
-        if era.isdigit() and era != prev: put(S(tick(0.25), thud(0.45, 50, 0.2, 0.45)), te, 0, 1.0)
+        pass
+        if era.isdigit() and era != prev: put(S(tick(0.25), thud(0.45, 50, 0.2, 0.45)), te, 0, 0.4)
         if era.isdigit(): prev = era
     # ---- 4. boom + silence
-    put(boom_snd(0.95), CH1, 0, 1.0)
+    put(boom_snd(0.95), CH1, 0, 0.7)
     # ---- 5. finale
     F = FIN0; V = lambda n: V3 + f'/vo/{n}.wav'
     def vo(n, t, g=1.0):
         x = np.frombuffer(subprocess.run([FF, '-v', 'error', '-i', V(n), '-ac', '1', '-ar', str(SR), '-f', 'f32le', '-'], capture_output=True).stdout, dtype=np.float32).astype(np.float64)
-        put(fade(norm_rms(x, 0.15, 0.5, 6.0), 0.01, 0.06), F + t, 0, g)
+        put(fade(norm_rms(x, 0.24, 0.5, 8.0), 0.01, 0.06), F + t, 0, g, sp=True)
     vo('D1', 0.0); vo('D2', 2.3); vo('D3', 4.1); vo('D4', 14.35)
     for tt, a in [(0.2, .5), (0.6, .5), (1.32, .9), (2.48, .5), (2.92, .7)]: put(S(thud(a, 55, 0.16, 0.4), 0.5 * tick(0.2)), F + tt, 0, 1.0)
     put(whoosh(0.35, 300, 4500), F + 3.45, 0, 0.5)
@@ -192,6 +194,10 @@ def audio(total):
     put(chime(659.25, 0.2, 1.0), F + 11.3, 0, 1.0); put(chime(880, 0.2, 1.2), F + 11.42, 0, 1.0)
     put(whoosh(0.9, 300, 6000), F + 12.55, 0, 0.55); put(thud(0.5, 55, 0.25, 0.6), F + 13.0, 0, 1.0)
     put(whoosh(0.6, 400, 7000), F + 14.05, 0, 0.6); put(chime(523.25, 0.2, 1.6) + chime(659.25, 0.15, 1.6) + chime(783.99, 0.12, 1.6), F + 14.55, 0, 1.0)
+    env = np.abs(SL) + np.abs(SR_); k = int(0.12 * SR); cs = np.cumsum(np.insert(env, 0, 0)); env = (cs[k:] - cs[:-k]) / k; env = np.concatenate([env, np.zeros(N - len(env))])[:N]
+    env = np.convolve(env, np.ones(int(0.15 * SR)) / int(0.15 * SR), mode='same')
+    duck = 1 - 0.85 * np.clip(env / 0.06, 0, 1)
+    L = L * duck + SL; R = R * duck + SR_
     # ---- hard silence between boom and finale
     b0 = int((CH1 + 0.45) * SR); b1 = int(FIN0 * SR); f = int(0.02 * SR)
     for ch in (L, R): ch[b0 - f:b0] *= np.linspace(1, 0, f); ch[b0:b1] = 0
