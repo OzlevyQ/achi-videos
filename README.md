@@ -26,3 +26,4 @@ Notes
 - 13-achi-mixed-media-9x16.mp4: watercolor (p5.brush) + real footage collage + photoreal 3D phone portal (14s vertical)
 - videos/16-the-hand-that-helped.mp4 — "היד שעזרה בסתר", 9:16, 50s, Instinct VO, p5.brush scenes
 - videos/17-the-hand-v2.mp4 — "היד שעזרה בסתר" v2: young voice, 26s, tighter subtitles
+- videos/18-ai-supercut-v1.mp4 — "AI supercut" v1 (draft for approval, NOT published): 9:16 fullscreen, 39s, official-clip words, TTS Hebrew VO. Sources: videos/18-ai-supercut-v1-SOURCES.md. Required line: "Clips show public moments in AI history. achi is not affiliated with these companies."
